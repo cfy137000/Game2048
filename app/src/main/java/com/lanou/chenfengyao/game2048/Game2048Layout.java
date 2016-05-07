@@ -4,12 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
+import android.view.animation.Animation;
+import android.view.animation.ScaleAnimation;
 import android.widget.RelativeLayout;
 
 /**
@@ -68,7 +71,7 @@ public class Game2048Layout extends RelativeLayout {
      * @author zhy
      */
     private enum ACTION {
-        LEFT, RIGHT, UP, DOWM
+        LEFT, RIGHT, UP, DOWN
     }
 
     public Game2048Layout(Context context, AttributeSet attrs, int defStyle) {
@@ -153,7 +156,7 @@ public class Game2048Layout extends RelativeLayout {
             case UP:
                 index = i + j * mColumn;
                 break;
-            case DOWM:
+            case DOWN:
                 index = i + (mColumn - 1 - j) * mColumn;
                 break;
         }
@@ -367,6 +370,7 @@ public class Game2048Layout extends RelativeLayout {
                 Random random = new Random();
                 int next = random.nextInt(16);
                 Game2048Item item = mGame2048Items[next];
+                animCreate(item);
 
                 while (item.getNumber() != 0) {
                     next = random.nextInt(16);
@@ -379,6 +383,14 @@ public class Game2048Layout extends RelativeLayout {
             }
 
         }
+    }
+
+    private void animCreate(Game2048Item target) {
+
+        ObjectAnimator.ofFloat(target, "scaleX"
+                , 0, 1).start();
+        ObjectAnimator.ofFloat(target, "scaleY"
+                , 0, 1).start();
     }
 
     /**
@@ -420,7 +432,7 @@ public class Game2048Layout extends RelativeLayout {
 
             } else if (y > FLING_MIN_DISTANCE
                     && Math.abs(velocityX) < Math.abs(velocityY)) {
-                action(ACTION.DOWM);
+                action(ACTION.DOWN);
                 // Toast.makeText(getContext(), "toDown",
                 // Toast.LENGTH_SHORT).show();
 
