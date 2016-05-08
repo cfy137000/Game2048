@@ -46,7 +46,7 @@ public class Game2048Item extends View {
 
     public void setNumber(int number) {
         mNumber = number;
-        mNumberVal = mNumber + "";
+        mNumberVal = String.valueOf(number);
         mPaint.setTextSize(30.0f);
         mBound = new Rect();
         mPaint.getTextBounds(mNumberVal, 0, mNumberVal.length(), mBound);

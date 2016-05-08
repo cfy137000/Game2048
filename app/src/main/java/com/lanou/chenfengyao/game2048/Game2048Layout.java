@@ -421,26 +421,18 @@ public class Game2048Layout extends RelativeLayout {
             if (x > FLING_MIN_DISTANCE
                     && Math.abs(velocityX) > Math.abs(velocityY)) {
                 action(ACTION.RIGHT);
-                // Toast.makeText(getContext(), "toRight",
-                // Toast.LENGTH_SHORT).show();
 
             } else if (x < -FLING_MIN_DISTANCE
                     && Math.abs(velocityX) > Math.abs(velocityY)) {
                 action(ACTION.LEFT);
-                // Toast.makeText(getContext(), "toLeft",
-                // Toast.LENGTH_SHORT).show();
 
             } else if (y > FLING_MIN_DISTANCE
                     && Math.abs(velocityX) < Math.abs(velocityY)) {
                 action(ACTION.DOWN);
-                // Toast.makeText(getContext(), "toDown",
-                // Toast.LENGTH_SHORT).show();
 
             } else if (y < -FLING_MIN_DISTANCE
                     && Math.abs(velocityX) < Math.abs(velocityY)) {
                 action(ACTION.UP);
-                // Toast.makeText(getContext(), "toUp",
-                // Toast.LENGTH_SHORT).show();
             }
             return true;
 
