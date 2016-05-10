@@ -93,7 +93,7 @@ public class Game2048Layout extends RelativeLayout {
     private void action(ACTION action) {
         // 行|列
         for (int i = 0; i < mColumn; i++) {
-            List<Game2048Item> row = new ArrayList<Game2048Item>();
+            List<Game2048Item> row = new ArrayList<>();
             // 行|列
             //记录不为0的数字
             for (int j = 0; j < mColumn; j++) {

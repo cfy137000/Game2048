@@ -27,15 +27,19 @@ public class M2048Item extends FrameLayout {
         textView.setText("");
         textView.setGravity(Gravity.CENTER);
         setColor(0);
-        layoutParams.setMargins(5,5,5,5);
-        addView(textView,layoutParams);
+        layoutParams.setMargins(5, 5, 5, 5);
+        addView(textView, layoutParams);
     }
 
 
     public void setNumber(int number) {
         this.number = number;
         textView.setText(String.valueOf(number));
+        if (number == 0) {
+            textView.setText("");
+        }
         setColor(number);
+        invalidate();
     }
 
     public int getNumber() {
@@ -88,16 +92,4 @@ public class M2048Item extends FrameLayout {
         textView.setBackgroundColor(mBgColor);
     }
 
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        switch (event.getAction()){
-            case MotionEvent.ACTION_DOWN:
-                Toast.makeText(getContext(), "down", Toast.LENGTH_SHORT).show();
-                break;
-            case MotionEvent.ACTION_MOVE:
-                Toast.makeText(getContext(), "移动", Toast.LENGTH_SHORT).show();
-                break;
-        }
-        return super.onTouchEvent(event);
-    }
 }

@@ -18,7 +18,6 @@ public class MainActivity extends AppCompatActivity implements Game2048Layout.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
 //        mScore = (TextView) findViewById(R.id.id_score);
 //        mGame2048Layout = (Game2048Layout) findViewById(R.id.id_game2048);
 //        mGame2048Layout.setOnGame2048Listener(this);
